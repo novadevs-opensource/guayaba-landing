@@ -24,9 +24,9 @@ const IndexPage = () => {
         topNav: {
             navigation: [
                 { name: 'Features', href: '#features' },
+                { name: 'Privacy', href: '#privacy' },
                 { name: 'Identity', href: '#identity' },
                 { name: 'Payments', href: '#payments' },
-                { name: 'Privacy', href: '#privacy' },
                 { name: 'FAQ', href: '#faq' },
                 { name: 'About', href: 'https://sample.gitbook.io/doc/1.-project-overview' },
                 { name: 'Whitepaper', href: 'https://sample.gitbook.io/doc/4.-tokenomics' },
