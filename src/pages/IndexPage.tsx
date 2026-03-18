@@ -2,7 +2,7 @@ import TopNav from "../components/Common/TopNav";
 import ClaimBlock from "../components/MainBlocks/ClaimBlock";
 import ClaimBlueBlock from "../components/MainBlocks/ClaimBlueBlock";
 import FAQ from "../components/MainBlocks/FAQ";
-import Features from "../components/MainBlocks/Features";
+import Agents from "../components/MainBlocks/Agents";
 import AgentIdentity from "../components/MainBlocks/AgentIdentity";
 import AgentPayments from "../components/MainBlocks/AgentPayments";
 import Footer from "../components/MainBlocks/Footer";
@@ -23,7 +23,7 @@ const IndexPage = () => {
     const data = {
         topNav: {
             navigation: [
-                { name: 'Features', href: '#features' },
+                { name: 'Agents', href: '#agents' },
                 { name: 'Privacy', href: '#privacy' },
                 { name: 'Identity', href: '#identity' },
                 { name: 'Payments', href: '#payments' },
@@ -81,7 +81,7 @@ const IndexPage = () => {
                 },
                 {
                     title: 'Air-Gapped Inference',
-                    description: 'Models run in isolated environments. Prompts, responses, and model weights never touch external servers. Enterprise compliance, government-grade security, unrestricted intelligence.',
+                    description: 'Models run in isolated environments. Prompts, responses, and model weights never touch external servers. Enterprise compliance, production-grade security, unrestricted intelligence.',
                 },
             ],
         },
@@ -90,7 +90,7 @@ const IndexPage = () => {
             buttonText: 'Launch Console',
             buttonHref: 'https://app.guayaba.run',
         },
-        features: {
+        agents: {
             features: [
                 {
                     title: 'Curated Skills Marketplace',
@@ -105,7 +105,7 @@ const IndexPage = () => {
                 {
                     title: 'Universal API',
                     descriptions: [
-                        'Integrate your agents wherever you need them. Vibecode your product using our OpenAPI specification with your favorite tools.',
+                        'Integrate your agents wherever you need them. Vibecode your product using our well-documented API with your favorite tools.',
                     ],
                     boldDescription: 'Direct integration with applications, products, or existing systems.',
                 },
@@ -281,10 +281,10 @@ const IndexPage = () => {
 
             <Marquee text={data.marquee.text}/>
 
-            <Features
-                features={data.features.features}
-                screenshotImage={data.features.screenshotImage}
-                brandLogos={data.features.brandLogos}
+            <Agents
+                features={data.agents.features}
+                screenshotImage={data.agents.screenshotImage}
+                brandLogos={data.agents.brandLogos}
             />
 
             <ClaimBlueBlock

@@ -11,21 +11,21 @@ export interface BrandLogo {
     name: string;
 }
 
-export interface FeaturesProps {
+export interface AgentsProps {
     features: FeatureItem[];
     screenshotImage: string;
     brandLogos: BrandLogo[];
 }
 
-export default function Features({ features, screenshotImage, brandLogos }: FeaturesProps) {
+export default function Agents({ features, screenshotImage, brandLogos }: AgentsProps) {
     return (
-        <section id="features" className="border border-gray-400 border-t-0 border-b-0 bordered-container mx-auto grain overflow-hidden scroll-mt-16">
+        <section id="agents" className="border border-gray-400 border-t-0 border-b-0 bordered-container mx-auto grain overflow-hidden scroll-mt-16">
 
             {/* ── Hero row: feature principal + screenshot ── */}
             <div className="grid grid-cols-1 lg:grid-cols-5 border-b border-gray-400">
                 <div className="lg:col-span-2 flex items-center justify-center md:p-12 px-6 py-12 lg:border-r border-gray-400 bg-primary-500">
                     <span className="font-anek-latin font-semibold text-4xl uppercase tracking-wider text-white select-none break-all">
-                        <span className='font-light'>[</span>Features<span className='font-light'>]</span>
+                        <span className='font-light'>[</span>Agents<span className='font-light'>]</span>
                     </span>
                 </div>
                 <div className="lg:col-span-3 md:p-12 px-6 py-12 flex flex-col justify-center">
