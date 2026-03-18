@@ -32,19 +32,23 @@ export default function TopNav({ navigation, buttonText, buttonHref }: TopNavPro
             {/* Nav */}
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? '' : 'hover:underline',
-                      'text-black rounded px-3 py-2 text-sm font-semibold uppercase font-anek-latin self-center',
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {navigation.map((item) => {
+                  const isExternal = item.href.startsWith('http');
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      aria-current={item.current ? 'page' : undefined}
+                      className={classNames(
+                        item.current ? '' : 'hover:underline',
+                        'text-black rounded px-3 py-2 text-sm font-semibold uppercase font-anek-latin self-center',
+                      )}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                })}
                 <Button variant="dark" href={buttonHref}>{buttonText}</Button>
               </div>
             </div>
@@ -70,17 +74,21 @@ export default function TopNav({ navigation, buttonText, buttonHref }: TopNavPro
       >
         <div className="bordered-container mx-auto border border-gray-400 bg-white">
           <div className="divide-y divide-gray-300">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className="block px-6 py-4 font-anek-latin text-sm font-semibold uppercase tracking-wider text-black hover:text-primary-500 transition-colors"
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
+          {navigation.map((item) => {
+            const isExternal = item.href.startsWith('http');
+            return (
+              <DisclosureButton
+                key={item.name}
+                as="a"
+                href={item.href}
+                {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                aria-current={item.current ? 'page' : undefined}
+                className="block px-6 py-4 font-anek-latin text-sm font-semibold uppercase tracking-wider text-black hover:text-primary-500 transition-colors"
+              >
+                {item.name}
+              </DisclosureButton>
+            );
+          })}
           <div className="px-6 py-4">
             <Button variant="dark" href={buttonHref}>{buttonText}</Button>
           </div>

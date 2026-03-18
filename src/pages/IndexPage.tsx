@@ -28,6 +28,7 @@ const IndexPage = () => {
                 { name: 'Identity', href: '#identity' },
                 { name: 'Payments', href: '#payments' },
                 { name: 'FAQ', href: '#faq' },
+                { name: 'Docs', href: 'https://docs.guayaba.run' },
             ],
             buttonText: 'Launch Console',
             buttonHref: 'https://app.guayaba.run',
@@ -62,8 +63,8 @@ const IndexPage = () => {
                 },
                 {
                     icon: <HiOutlineCodeBracketSquare />,
-                    title: 'Curated & Open-Source Marketplace',
-                    description: 'Every skill in our marketplace is reviewed and verified by our team before publication, ensuring security, reliability, and zero risk of malware. Publish your own plugins from GitHub and start monetizing with built-in usage metering.',
+                    title: 'Curated Marketplace',
+                    description: 'Every skill in our marketplace is reviewed and verified by our team before publication, ensuring security, reliability, and zero risk of malware.', //Publish your own plugins from GitHub and start monetizing with built-in usage metering.',
                 },
             ],
         },
@@ -202,11 +203,11 @@ const IndexPage = () => {
             questions: [
                 {
                     title: 'Do I need to know how to code?',
-                    content: <p>You only need to provide your API keys/credentials and configure your agent's behavior through our dashboard.</p>,
+                    content: <p>You only need to follow the setup wizard and configure your agent's behavior through our dashboard.</p>,
                 },
                 {
                     title: 'Can I run multiple agents at the same time?',
-                    content: <p>Yes. Each agent runs as an independent instance with isolated, dedicated resources. If you want you can also mix different frameworks (like Eliza and OpenAI) simultaneously in one dashboard.</p>,
+                    content: <p>Yes. Each agent runs as an independent instance with isolated, dedicated resources. If you want you can also mix different frameworks (like OpenClaw and Anthropic) simultaneously in one dashboard.</p>,
                 },
                 {
                     title: 'What models can I use?',
