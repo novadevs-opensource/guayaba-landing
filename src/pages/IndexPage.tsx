@@ -247,8 +247,9 @@ const IndexPage = () => {
                     features: [
                         '1 agent instance',
                         'Community support',
-                        'Public model access',
-                        'Basic dashboard',
+                        'OpenAI Free Models',
+                        'Basic Dashboard',
+                        '3000 credits'
                     ],
                     highlight: true,
                     buttonText: 'Start Free Trial',
@@ -258,14 +259,13 @@ const IndexPage = () => {
                     name: 'Pro',
                     price: '$49',
                     period: 'month',
-                    description: 'For teams shipping agents to production with dedicated resources.',
+                    description: 'For adavanced users and teams shipping agents to production with dedicated resources.',
                     features: [
-                        'Up to 3 agent instances',
-                        'Dedicated CPU/GPU allocation',
-                        'Priority support',
-                        'Custom model upload',
-                        'Universal API access',
-                        'Agent Identity Layer',
+                        'Up to 3 agent instance',
+                        'Community support',
+                        'OpenAI Free Models',
+                        'Basic Dashboard',
+                        '10000 credits'
                     ],
                     buttonText: 'Get Started',
                     buttonHref: 'https://app.guayaba.run',
