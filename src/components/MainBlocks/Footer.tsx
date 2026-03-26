@@ -1,4 +1,5 @@
 import { FaPlay, FaTelegram, FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import logoWhite from "../../assets/images/logo/guayaba_horizontal_white.svg"
 import logoBlack from "../../assets/images/logo/guayaba_horizontal_blue.svg"
 import React, { ReactNode } from "react";
@@ -72,9 +73,14 @@ export default function Footer({ title, description, subtitle, contactText, cont
                 <div className="flex md:flex-row flex-col md:items-center md:justify-between gap-4 pb-8">
                     <img src={logoBlack} alt="Logo" className="h-4 w-auto object-contain object-left" />
                     <div className="flex flex-row gap-6">
-                        {bottomLinks.map((link, i) => (
-                            <a key={i} href={link.href} className="font-space text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity">{link.name}</a>
-                        ))}
+                        {bottomLinks.map((link, i) => {
+                            const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:');
+                            return isExternal ? (
+                                <a key={i} href={link.href} target="_blank" rel="noopener noreferrer" className="font-space text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity">{link.name}</a>
+                            ) : (
+                                <Link key={i} to={link.href} className="font-space text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity">{link.name}</Link>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

@@ -304,6 +304,8 @@ const IndexPage = () => {
             bottomLinks: [
                 { name: 'Documentation', href: 'https://docs.guayaba.run' },
                 { name: 'Support', href: 'mailto:david@guayaba.run' },
+                { name: 'Terms of Service', href: '/terms' },
+                { name: 'Privacy Policy', href: '/privacy-policy' },
             ],
         },
     };
