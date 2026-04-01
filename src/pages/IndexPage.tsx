@@ -17,8 +17,12 @@ import anthropic from "../assets/images/brands/anthropic.svg";
 import ollama from "../assets/images/brands/ollama.svg";
 import langchain from "../assets/images/brands/langchain.svg";
 import mainLogo from '../assets/images/logo/guayaba_horizontal_black.svg'
+import guayabaWhiteLogo from '../assets/images/logo/guayaba_horizontal_white.svg'
 import PaletteBlock from "../components/Common/PaletteBlock";
+import PromoModal from "../components/Common/PromoModal";
+import type { PromoSlide } from "../components/Common/PromoModal";
 import { HiOutlineCubeTransparent, HiOutlineRocketLaunch, HiOutlineCodeBracketSquare } from "react-icons/hi2";
+import { FaHeart } from "react-icons/fa6";
 
 const IndexPage = () => {
     const data = {
@@ -310,8 +314,122 @@ const IndexPage = () => {
         },
     };
 
+    const promoSlides: PromoSlide[] = [
+        {
+            tag: 'New Feature',
+            title: 'OpenClaw Agents Now Available',
+            bullets: [
+                {
+                    bold: 'Deploy OpenClaw agents instantly.',
+                    text: 'The open-source agent is now fully integrated. Create, configure, and launch OpenClaw agents from your dashboard.',
+                },
+                {
+                    bold: 'Full plugin ecosystem access.',
+                    text: 'Browse and install skills from the curated marketplace. Every skill is reviewed and verified—zero risk of malware.',
+                },
+                {
+                    bold: 'Multi-framework compatible.',
+                    text: 'Combine OpenClaw with Hermes, OpenAI, Ollama and other agents under a single unified dashboard.',
+                },
+            ],
+            buttonText: 'Start free trial',
+            buttonHref: 'https://app.guayaba.run',
+            panelBg: 'bg-primary-500',
+            panelContent: (
+                <>
+                    <img src={guayabaWhiteLogo} alt="" className="absolute w-[60%] md:w-auto md:h-[70%] opacity-[0.06] md:-rotate-90 select-none pointer-events-none z-[1]" />
+                    <img src={openclaw} alt="OpenClaw" className="w-16 h-16 md:w-28 md:h-28 relative z-10 drop-shadow-lg" />
+                    <div className="flex items-center gap-2 md:gap-3 mt-2 md:mt-4 relative z-10">
+                        <span className="font-space font-extrabold text-white text-lg md:text-2xl uppercase tracking-wider">OpenClaw</span>
+                        <span className="font-space font-extrabold text-white text-lg md:text-2xl"><FaHeart /></span>
+                        <span className="font-space font-extrabold text-white text-lg md:text-2xl uppercase tracking-wider">Guayaba</span>
+                    </div>
+                    <span className="font-anon text-white/60 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1 relative z-10">personal AI assistant</span>
+                </>
+            ),
+        },
+        {
+            tag: 'Welcome Gift',
+            title: '$200 in Credits for New Users',
+            bullets: [
+                {
+                    bold: 'No payments required.',
+                    text: 'Create your account and start deploying agents immediately.',
+                },
+                {
+                    bold: 'Use credits on any resource.',
+                    text: 'Spend them on LLM inference, cloud compute, storage, or any combination. You decide how to allocate them.',
+                },
+                {
+                    bold: 'No payments until month two.',
+                    text: 'Your first month is fully covered by the welcome credits. Cancel anytime, no commitments, no hidden fees.',
+                },
+            ],
+            buttonText: 'Claim Your Credits',
+            buttonHref: 'https://app.guayaba.run',
+            panelBg: 'bg-secondary-500',
+            panelContent: (
+                <>
+                    <img src={guayabaWhiteLogo} alt="" className="absolute w-[60%] md:w-auto md:h-[70%] opacity-[0.06] md:-rotate-90 select-none pointer-events-none z-[1]" style={{ filter: 'brightness(0)' }} />
+                    <span className="font-space font-extrabold text-5xl md:text-7xl text-black relative z-10 drop-shadow-sm">$200</span>
+                    <span className="font-anon text-black/70 text-[11px] md:text-sm font-bold uppercase tracking-widest mt-1 md:mt-2 relative z-10">Free Credits</span>
+                    <div className="flex gap-4 md:gap-6 mt-3 md:mt-6 relative z-10">
+                        <div className="text-center">
+                            <span className="font-space font-extrabold text-xl md:text-2xl text-black block">LLM</span>
+                            <span className="font-anon text-[10px] md:text-[11px] text-black/60 font-semibold uppercase">Inference</span>
+                        </div>
+                        <div className="w-[2px] bg-black/30" />
+                        <div className="text-center">
+                            <span className="font-space font-extrabold text-xl md:text-2xl text-black block">HW</span>
+                            <span className="font-anon text-[10px] md:text-[11px] text-black/60 font-semibold uppercase">Resources</span>
+                        </div>
+                    </div>
+                </>
+            ),
+        },
+        {
+            tag: 'Referral Program',
+            title: 'Refer & Earn 5000 Credits Each',
+            bullets: [
+                {
+                    bold: '5000 credits for you.',
+                    text: 'Every time someone signs up with your referral link, you receive 5000 credits for LLM inference and hardware resources.',
+                },
+                {
+                    bold: '5000 credits for your friend.',
+                    text: 'Your referral also gets 5000 bonus credits on top of the welcome gift. Everyone wins.',
+                },
+                {
+                    bold: 'Unlimited referrals.',
+                    text: 'There\'s no cap. Refer 10 friends, earn 50,000 credits. Build your agent infrastructure for free.',
+                },
+            ],
+            buttonText: 'Start Referring',
+            buttonHref: 'https://app.guayaba.run',
+            panelBg: 'bg-black',
+            panelContent: (
+                <>
+                    <img src={guayabaWhiteLogo} alt="" className="absolute w-[60%] md:w-auto md:h-[70%] opacity-[0.05] md:-rotate-90 select-none pointer-events-none z-[1]" />
+                    <span className="font-space font-extrabold text-4xl md:text-6xl text-white relative z-10 drop-shadow-lg">2&times;5000</span>
+                    <span className="font-anon text-white/60 text-[11px] md:text-sm font-bold uppercase tracking-widest mt-1 md:mt-2 relative z-10">Credits Each</span>
+                    <div className="flex gap-3 md:gap-4 mt-3 md:mt-6 relative z-10">
+                        <div className="border-2 border-white/30 px-5 py-3 text-center">
+                            <span className="font-anon text-[10px] md:text-[11px] text-white/50 font-semibold uppercase block">You</span>
+                            <span className="font-space font-extrabold text-xl md:text-2xl text-secondary-500">5000</span>
+                        </div>
+                        <div className="border-2 border-white/30 px-5 py-3 text-center">
+                            <span className="font-anon text-[10px] md:text-[11px] text-white/50 font-semibold uppercase block">Friend</span>
+                            <span className="font-space font-extrabold text-xl md:text-2xl text-secondary-500">5000</span>
+                        </div>
+                    </div>
+                </>
+            ),
+        },
+    ];
+
     return (
         <>
+            <PromoModal slides={promoSlides} />
             <TopNav
                 navigation={data.topNav.navigation}
                 buttonText={data.topNav.buttonText}
