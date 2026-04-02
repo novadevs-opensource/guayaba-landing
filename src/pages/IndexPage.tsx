@@ -302,8 +302,8 @@ const IndexPage = () => {
             contactText: 'Contact us',
             contactHref: 'mailto:david@guayaba.run',
             socialLinks: [
-                { type: 'telegram', href: '#' },
-                { type: 'twitter', href: 'https://x.com/Guayabadotrun' },
+                { type: 'telegram', href: 'https://t.me/+kwou-W1Vsys5MzRk', label: 'Join Community' },
+                { type: 'twitter', href: 'https://x.com/Guayabadotrun', label: 'Follow us on X' },
             ],
             bottomLinks: [
                 { name: 'Documentation', href: 'https://docs.guayaba.run' },

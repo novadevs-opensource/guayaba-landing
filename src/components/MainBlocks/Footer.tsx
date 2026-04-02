@@ -1,4 +1,4 @@
-import { FaPlay, FaTelegram, FaXTwitter } from "react-icons/fa6";
+import { FaEnvelope, FaPlay, FaTelegram, FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import logoWhite from "../../assets/images/logo/guayaba_horizontal_white.svg"
 import logoBlack from "../../assets/images/logo/guayaba_horizontal_blue.svg"
@@ -15,7 +15,7 @@ export interface FooterProps {
     subtitle: ReactNode;
     contactText: string;
     contactHref: string;
-    socialLinks: { type: string; href: string }[];
+    socialLinks: { type: string; href: string; label: string }[];
     bottomLinks: { name: string; href: string }[];
 }
 
@@ -25,8 +25,11 @@ export default function Footer({ title, description, subtitle, contactText, cont
             {socialLinks.map((link, i) => {
                 const Icon = socialIcons[link.type];
                 return Icon ? (
-                    <a key={i} className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors" target="_blank" href={link.href}>
-                        <Icon className="text-white text-lg"/>
+                    <a key={i} className="font-space text-xs uppercase tracking-widest flex flex-row items-center gap-3 hover:opacity-70 transition-opacity" target="_blank" href={link.href}>
+                        <span>{link.label}</span>
+                        <span className="bg-primary-500 h-7 w-7 flex items-center justify-center">
+                            <Icon className="text-sm"/>
+                        </span>
                     </a>
                 ) : null;
             })}
@@ -53,14 +56,14 @@ export default function Footer({ title, description, subtitle, contactText, cont
                         <p className="font-anek-latin text-sm md:text-base text-white leading-relaxed max-w-lg mb-1">{description}</p>
                         <p className="font-anek-latin text-sm md:text-base text-white leading-relaxed max-w-lg">{subtitle}</p>
                     </div>
-                    <div className="lg:col-span-2 flex flex-col justify-end">
-                        <a className="font-space text-xs uppercase tracking-widest flex flex-row items-center gap-3 hover:opacity-70 transition-opacity mb-8" href={contactHref}>
-                            <span>{contactText}</span>
-                            <span className="bg-primary-500 h-7 w-7 flex items-center justify-center">
-                                <FaPlay className="text-[10px]"/>
-                            </span>
-                        </a>
-                        <div className="flex flex-row gap-2">
+                    <div className="lg:col-span-2 hidden lg:flex flex-col justify-end">
+                        <div className="flex flex-row flex-wrap items-center gap-6">
+                            <a className="font-space text-xs uppercase tracking-widest flex flex-row items-center gap-3 hover:opacity-70 transition-opacity" href={contactHref}>
+                                <span>{contactText}</span>
+                                <span className="bg-primary-500 h-7 w-7 flex items-center justify-center">
+                                    <FaPlay className="text-[10px]"/>
+                                </span>
+                            </a>
                             {renderSocialLinks()}
                         </div>
                     </div>
@@ -70,17 +73,34 @@ export default function Footer({ title, description, subtitle, contactText, cont
             {/* Bottom bar */}
             <div className="md:px-12 px-6 bg-white border-b border-gray-300 mt-20">
                 <div className="h-px bg-white/10 mt-16 mb-8"></div>
-                <div className="flex md:flex-row flex-col md:items-center md:justify-between gap-4 pb-8">
-                    <img src={logoBlack} alt="Logo" className="h-4 w-auto object-contain object-left" />
-                    <div className="flex flex-row gap-6">
-                        {bottomLinks.map((link, i) => {
-                            const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:');
-                            return isExternal ? (
-                                <a key={i} href={link.href} target="_blank" rel="noopener noreferrer" className="font-space text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity">{link.name}</a>
-                            ) : (
-                                <Link key={i} to={link.href} className="font-space text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity">{link.name}</Link>
-                            );
-                        })}
+                <div className="pb-8">
+                    <img src={logoBlack} alt="Logo" className="h-4 w-auto object-contain object-left mb-6" />
+                    <div className="grid grid-cols-2 lg:grid-cols-1 gap-6">
+                        <div className="flex flex-col lg:flex-row gap-3 lg:gap-6">
+                            {bottomLinks.map((link, i) => {
+                                const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:');
+                                return isExternal ? (
+                                    <a key={i} href={link.href} target="_blank" rel="noopener noreferrer" className="font-space text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity">{link.name}</a>
+                                ) : (
+                                    <Link key={i} to={link.href} className="font-space text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity">{link.name}</Link>
+                                );
+                            })}
+                        </div>
+                        <div className="flex flex-col gap-3 lg:hidden">
+                            <a href={contactHref} className="flex items-center gap-2 text-black hover:text-primary-500 transition-colors">
+                                <FaEnvelope className="text-sm"/>
+                                <span className="font-space text-[10px] uppercase tracking-widest">{contactText}</span>
+                            </a>
+                            {socialLinks.map((link, i) => {
+                                const Icon = socialIcons[link.type];
+                                return Icon ? (
+                                    <a key={i} href={link.href} target="_blank" className="flex items-center gap-2 text-black hover:text-primary-500 transition-colors">
+                                        <Icon className="text-sm"/>
+                                        <span className="font-space text-[10px] uppercase tracking-widest">{link.label}</span>
+                                    </a>
+                                ) : null;
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>
