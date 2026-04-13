@@ -60,15 +60,15 @@ const PromoModal: React.FC<PromoModalProps> = ({ slides }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10"
+      className="fixed inset-0 z-[9999] flex items-center justify-center md:p-10"
       onClick={handleClose}
     >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
-      {/* Modal */}
+      {/* Modal — bottom sheet on mobile, centered card on desktop */}
       <div
-        className="relative w-full max-w-4xl h-[95vh] md:h-auto md:max-h-[90vh] overflow-hidden shadow-2xl animate-modal-in border border-gray-400 flex flex-col"
+        className="relative w-full md:max-w-4xl h-[calc(100%-3rem)] md:h-auto md:max-h-[90vh] mt-auto md:mt-0 md:mx-auto overflow-hidden shadow-2xl animate-modal-in border border-gray-400 md:border rounded-t-2xl md:rounded-t-none md:rounded-none flex flex-col bg-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -156,8 +156,21 @@ const PromoModal: React.FC<PromoModalProps> = ({ slides }) => {
             transform: scale(1) translateY(0);
           }
         }
+        @keyframes modal-slide-up {
+          from {
+            transform: translateY(100%);
+          }
+          to {
+            transform: translateY(0);
+          }
+        }
         .animate-modal-in {
-          animation: modal-in 0.35s ease-out forwards;
+          animation: modal-slide-up 0.35s ease-out forwards;
+        }
+        @media (min-width: 768px) {
+          .animate-modal-in {
+            animation: modal-in 0.35s ease-out forwards;
+          }
         }
         .animate-modal-in .swiper {
           display: flex;
