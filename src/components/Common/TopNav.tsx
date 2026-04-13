@@ -70,7 +70,7 @@ export default function TopNav({ navigation, buttonText, buttonHref }: TopNavPro
 
       <DisclosurePanel
         transition
-        className="absolute left-0 right-0 sm:hidden origin-top transition duration-300 ease-out data-[closed]:scale-y-0 data-[closed]:opacity-0"
+        className="absolute left-0 right-0 sm:hidden origin-top transition duration-300 ease-out data-[closed]:scale-y-0 data-[closed]:opacity-0 z-50"
       >
         <div className="bordered-container mx-auto border border-gray-400 bg-white">
           <div className="divide-y divide-gray-300">
@@ -96,13 +96,13 @@ export default function TopNav({ navigation, buttonText, buttonHref }: TopNavPro
         </div>
       </DisclosurePanel>
 
-      {/* Backdrop blur */}
+      {/* Backdrop blur — portaled into #root (z-1 in body), at z-40 here = below nav (z-50), above page content */}
       {createPortal(
         <div
           className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 sm:hidden z-40 ${open ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
           aria-hidden="true"
         />,
-        document.body
+        document.getElementById('root')!
       )}
         </>
       )}
